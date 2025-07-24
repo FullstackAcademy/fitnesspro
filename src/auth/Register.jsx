@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "./AuthContext";
 import { usePage } from "../layout/PageContext";
+import { Link } from "react-router-dom";
 
 /** A form that allows users to register for a new account */
 export default function Register() {
@@ -18,6 +19,12 @@ export default function Register() {
     } catch (e) {
       setError(e.message);
     }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    tryRegister(new FormData(e.target));
+    Link("/login");
   };
 
   return (

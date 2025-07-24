@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "./AuthContext";
 import { usePage } from "../layout/PageContext";
+import { Link } from "react-router-dom";
 
 /** A form that allows users to log into an existing account. */
 export default function Login() {
@@ -18,6 +19,12 @@ export default function Login() {
     } catch (e) {
       setError(e.message);
     }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    tryLogin(new FormData(e.target));
+    Link("/");
   };
 
   return (

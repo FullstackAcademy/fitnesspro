@@ -13,7 +13,9 @@ createRoot(document.getElementById("root")).render(
     <ApiProvider>
       <PageProvider>
         <Layout>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </Layout>
       </PageProvider>
     </ApiProvider>
